@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Query task</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="container1">
+        <h1>Learn to code by helping others</h1>
+        <p>
+          See how experienced developers solve problems in real-time. Watching
+          scripted tutorials is great, but understanding how developers think is
+          invaluable.
+        </p>
+      </div>
+      <div class="container2">
+        <div class="btnContainer">
+          <button><b>Try it 7 days </b>then $20/mo. thereafter</button>
+        </div>
+        <div class="formContainer">
+          <form>
+            <input type="text" placeholder="First Name" class="input" /><i
+              class="fa-solid fa-circle-info i1"
+            ></i>
+            <span class="span0 span">First Name cannot be left empty</span>
+            <input type="text" placeholder="Last Name" class="input" /><i
+              class="fa-solid fa-circle-info i2"
+            ></i>
+            <span class="span1 span">Last Name cannot be left empty</span>
+            <input type="email" placeholder="Email Address" class="input" /><i
+              class="fa-solid fa-circle-info i3"
+            ></i>
+            <span class="span2 span">Looks like this is not an email</span>
+            <input type="password" placeholder="Password" class="input" /><i
+              class="fa-solid fa-circle-info i4"
+            ></i>
+            <span class="span3 span">Password cannot be left empty</span>
+            <input type="submit" value="CLAIM YOUR FREE TRIAL" class="btn" />
+          </form>
+          <p class="termp">
+            By clicking the button, you are agreeing to our
+            <b class="termp2">Terms and Services</b>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.querySelector("form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        let inputs = document.getElementsByClassName("input");
+        for (let i = 0; i < inputs.length; i++) {
+          if (inputs[i].value === "") {
+            inputs[i].style.borderColor = "hsl(0, 100%, 74%)";
+            inputs[i].placeholder = "";
+            if (i === 2) {
+              inputs[i].placeholder = "example@gmail.com";
+              inputs[i].classList.add("email");
+            }
+            document.querySelector(`.i${i + 1}`).style.visibility = "visible";
+            document.querySelector(`.span${i}`).style.display = "block";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
